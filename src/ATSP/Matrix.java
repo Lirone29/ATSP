@@ -9,7 +9,6 @@ import java.util.Vector;
 
 public class Matrix {
 
-
     int size;
     Vector<Vector<Double>> matrixVector;
 
@@ -35,8 +34,6 @@ public class Matrix {
     boolean readFromFile(String filename){
         int dimension = 0;
         String[] dim;
-        int position = -1;
-        String inputLine = "";
 
         try {
             File myObj = new File(filename);
@@ -50,7 +47,6 @@ public class Matrix {
                     System.out.println("Dimension is " + dimension);
                 }
                 if(data.contains("EDGE_WEIGHT_SECTION")) break;
-                //System.out.println(data);
             }
             while (myReader.hasNextLine()){
                 String data = myReader.nextLine();
@@ -74,12 +70,14 @@ public class Matrix {
         return false;
     }
 
-    //setting up values in matrix
+    //setting up values in matrix - NOT USED
+    /*
     void setMatrixVector(Vector<Vector<Double>> tmpMatrixVector){
 
         matrixVector = tmpMatrixVector;
         //size = matrixVector.size();
     }
+    */
 
     Vector<Vector<Double>> getMatrixVector(){
          return matrixVector;
