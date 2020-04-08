@@ -83,6 +83,9 @@ public class Matrix {
          return matrixVector;
     }
 
+    double getValue(int indexFirst, int indexSecond){
+        return matrixVector.get(indexFirst).get(indexSecond);
+    }
     int getSize(){
         return size;
     }
