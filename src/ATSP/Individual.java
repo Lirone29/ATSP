@@ -130,6 +130,7 @@ public class Individual {
 
     void crossoverPMX(Individual otherParent, Individual tmpChild){
 
+        Random random = new Random();
         int smallerCrossPoint, biggerCrossPoint;
         Vector<Integer> child = new Vector<>();
         Vector<Integer> parentA = genotype;
@@ -139,8 +140,28 @@ public class Individual {
         int tmpCounter;
         int tmpNumber;
 
+        smallerCrossPoint = random.nextInt(genotypeSize-1);
+        biggerCrossPoint = random.nextInt(genotypeSize-1);
         child.setSize(genotypeSize);
 
+        if(smallerCrossPoint>biggerCrossPoint)
+        {
+            int tmp = smallerCrossPoint;
+            smallerCrossPoint = biggerCrossPoint;
+            biggerCrossPoint = tmp;
+        }
+
+        for(int i = 0; i < genotypeSize; i++) {
+            child.set(i,parentB.get(i));
+        }
+
+        Vector tmpParent  = new Vector();
+        for(int i = smallerCrossPoint; i < biggerCrossPoint; i++){
+            child.set(i,parentB.get(i));
+        }
+
+        tmpChild = new Individual(child);
+        //tutaj może dać return tmpChild - taka metoda byłąby lepsza
     }
 
     void printDebugInfo(){

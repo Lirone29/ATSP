@@ -24,7 +24,6 @@ public class Matrix {
                 System.out.print(iterator.next() + " \n");
             }
         }
-
     }
 
     public void clearMatrix(){
